@@ -151,8 +151,11 @@ class _BottomNavBar extends StatelessWidget {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const ActivityLogPage()),
       );
+    } else if (index == 2) {
+      Navigator.of(context).pushReplacementNamed('/user');
+    } else if (index == 3) {
+      Navigator.of(context).pushReplacementNamed('/setting');
     }
-    // Tambah navigasi lain jika perlu
   }
 
   @override
@@ -179,12 +182,12 @@ class _BottomNavBar extends StatelessWidget {
           _NavBarIcon(
             icon: Icons.person,
             selected: selectedIndex == 2,
-            onTap: () {},
+            onTap: () => _onTap(context, 2),
           ),
           _NavBarIcon(
             icon: Icons.settings,
             selected: selectedIndex == 3,
-            onTap: () {},
+            onTap: () => _onTap(context, 3),
           ),
         ],
       ),
